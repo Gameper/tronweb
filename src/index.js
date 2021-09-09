@@ -15,6 +15,7 @@ import SideChain from 'lib/sidechain';
 import { keccak256 } from 'utils/ethersUtils';
 import { ADDRESS_PREFIX } from 'utils/address';
 
+import {signTransaction} from './utils/crypto'
 const DEFAULT_VERSION = '3.5.0';
 
 const FEE_LIMIT = 150000000;
@@ -29,7 +30,7 @@ export default class TronWeb extends EventEmitter {
     static Event = Event;
     static version = version;
     static utils = utils;
-
+    static signTransaction = signTransaction;
     constructor(options = false,
         // for retro-compatibility:
         solidityNode = false, eventServer = false, sideOptions = false, privateKey = false) {
